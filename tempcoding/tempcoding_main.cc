@@ -550,8 +550,10 @@ void Main(int argc, char** argv) {
     float final_train_valid_accuracy, final_test_accuracy;
     // Compute accuracy on test set.
     Runner test_runner(best_model, &problem);
+    TestOptions tmp;
+    tmp.compute_train_accuracy = true;
     std::tie(final_train_valid_accuracy, final_test_accuracy) =
-        test_runner.TestModel(TestOptions{.compute_train_accuracy = true});
+        test_runner.TestModel(tmp);
     test_errors.push_back(final_test_accuracy);
 
     // Print results.

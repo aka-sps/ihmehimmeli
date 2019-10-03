@@ -3,8 +3,9 @@ project(tempcoding)
 
 add_library(data_parallel data_parallel.cc data_parallel.h)
 
-add_library(util util.h)
-target_link_libraries(util absl::strings absl::time)
+add_library(util INTERFACE)
+target_sources(util INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/util.h)
+target_link_libraries(util INTERFACE absl::strings absl::time)
 
 add_library(lambertw lambertw.cc lambertw.h)
 

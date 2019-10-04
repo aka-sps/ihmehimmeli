@@ -89,14 +89,14 @@ void LoadMNISTDataAndLabels(const std::string &data_path,
                             std::vector<int> *mnist_labels) {
   std::string data_bytes;
   {
-    file::IhmFile file = file::OpenOrDie(data_path, "r");
+    file::IhmFile file = file::OpenOrDie(data_path, "rb");
     IHM_CHECK(file.ReadWholeFileToString(&data_bytes));
     IHM_CHECK(file.Close());
   }
 
   std::string labels_bytes;
   {
-    file::IhmFile file = file::OpenOrDie(labels_path, "r");
+    file::IhmFile file = file::OpenOrDie(labels_path, "rb");
     IHM_CHECK(file.ReadWholeFileToString(&labels_bytes));
     IHM_CHECK(file.Close());
   }
